@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Galois 理论</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* 头部样式 */
+.header {
+  background-color: #2e7bcf;
+  padding: 20px;
+  text-align: center;
+  font-size: 40px;
+}
+
+
+/* 导航条 */
+.topnav {
+  overflow: hidden;
+  background-color: rgb(9, 87, 140);
+  height:60px;
+  font-size: 25px;
+}
+
+/* 导航链接 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* 链接 */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* 创建三个不相等的列 */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* 左右两侧 */
+.column.side {
+  width: 15%;
+  height:4000px;
+  background: rgb(158, 235, 71);
+  color:rgb(46, 46, 156);
+}
+
+/* 中间区域 */
+.column.middle {
+  width: 70%;
+  height:4000px;
+  background: rgb(255, 255, 255);
+  color:black;
+  font-size: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><title>Galois 理论</title></h1>
+  <p>Galois 理论</p>
+</div>
+
+<div class="topnav">
+  <a href="#">链接</a>
+  <a href="#">链接</a>
+  <a href="#">链接</a>
+</div>
+
+<div class="row">
+  <div class="column side">
+    <h2>左侧栏</h2>
+    <ul>
+      <li><a href="Galois_algebraic.html">代数元和有限扩张</a></li>
+        <li><a href="Galois_normal.html"></a>分裂域和正规扩张</li>
+        <li><a href="Galois_example.html">Galois 对应</a></li>
+        <li><a href="Galois_corres.html">Galois 对应：实例</a></li>
+        <li><a href="Galois_solve.html">Galois 对应应用：不可解问题</a></li>
+    </ul>
+  </div>
+  
+  <div class="column middle">
+    <h2>Galois 对应</h2>
+    <p>
+      下面的定理是伽罗瓦理论的核心内容 。
+  
+</p>
+  <p>
+      
+      <b>定理 </b>
+      假设 \(E/F\) 有限正规可分扩张，则
+      <ul>
+        <li>
+          满足
+       \(F\subseteq K\subseteq E\) 的中间子域 \(K\), 与（有限）伽罗瓦群 \(G(E/F)\) 的子群 \(H\)
+        之间存在一一对应，具体的对应关系由如下互为逆的映射给出：
+              $$
+                  K\mapsto G(E/K),\, H\mapsto E^H.
+              $$
+        </li>
+        <li>
+          \(K/F\) 正规当且仅当 \(G(E/K)\) 是 \(G(E/F)\) 的正规子群。
+        </li>
+      </ul>
+      若要简洁的叙述完整的伽罗瓦对应，需要进一步引入格的概念，这里略去。
+    </p>
+  <p>
+    <b>命题 </b>
+          可分有限扩张 \(E/F\) （不要求正规） 中只有有限多个中间域 \(K\) （集合意义下）。
+  </br>
+  </br>
+  我们从直观上容易想象的到于此形成极大反差的是，在无限域上，若线性空间 \(V\) 的子空间 \(W\) 的余维数大于 \(1\), 则 \(V\), \(W\)
+  的“中间线性空间”
+  有无穷多个。由此看到，域在结构上比线性空间具有更强的“刚性”，以至于在集合意义下都仅有有限多个不同的中间域。而若不利用伽罗瓦理论
+，从域本身的性质上是很难看出来这点的。
+</p>
+<p>
+  我们回忆在 \ref{} 当中我们已经证明了 (1) 当中的
+  $$
+      G(E/E^H)=H    
+  $$
+  成立，我们仅仅需要证明另一部分，即
+  $$
+  E^{G(E/K)}=K
+  $$
+  成立。首先注意到
+  $$
+      E^{G(E/K)}\supseteq K
+  $$
+  显然成立，因而 
+  $$
+      [E:E^{G(E/K)}]\leq [E:F]
+  $$
+  由于 \(E/F\) 正规，因此由 \ref{}，\(E/K\) 也正规，故
+  $$
+      |G(E/K)|=|E:K|.
+  $$
+  又由 \ref{} 对 \(H=G(E/K)\subseteq G(E/F)\) 做应用并结合上式，我们得到
+  $$
+      [E:E^{G(E/K)}]=|G(E/K)|=|E:K|.
+  $$
+  因此由包含关系推出 
+  $$
+  E^{G(E/K)}=K
+  $$
+  成立。
+</p>
+<p>
+  下面证明 (2)。若 \(K/F\) 正规，则任意 \(g\in G(E/F),\,x\in K\)，应有 
+  $$
+      gx\in K.
+  $$
+  又由定义，对任意 \(gx\in K\) 当且仅当对任意 \(h\in G(E/K)\) 成立
+  $$
+      h(gx)=gx,
+  $$
+  因而
+  $$
+      g^{-1}hgx=x.
+  $$
+  结合定义我们推出
+  $$
+      g^{-1}Hg= H
+  $$
+  对任意 \(g\in G(E/F)\) 成立,所以 \(H=G(E/K)\) 是 \(G(E/F)\) 一个正规子群。反之若 \(G(E/K)\) 是 \(G(E/F)\) 一个正规子群, 则由上面的推理，对任意 \(g\in G(E/F),\,x\in K\)， 
+  $$
+      gx\in K
+  $$
+  成立，因此 \(g\in G(E/F)\) 可以通过限制而良定义作用在 \(K\) 上而成为 \(G(K/F)\) 中的元素，即
+  $$
+      G(E/F)|_{K}\subseteq G(K/F).
+  $$
+  所以 
+  $$
+      K^{G(K/F)}\subseteq K^{G(E/F)}\subseteq E^{G(E/F)}=F.
+  $$
+  另一方面 \(K^{G(K/F)}\supseteq F\) 显然成立，因而有 
+  $$
+      K^{G(K/F)}=F.
+  $$
+  由 \ref{} 知 \(K/F\) 正规。
+</p>
+<p>
+Galois 理论建立了域扩张格与对应Galois 群的子群格之间的一一对应。然而一般的，给定一个Galois 扩张 \(K/F\)，如何决定其 Galois 群 \(G(K/F)\)，以及给定一个群 \(G\)，如何反向找到扩域 \(K\) 使得 \(G(K/F)\simeq G\)，都是极其复杂和困难的。
+</p>
+  </div>
+  
+  <div class="column side">
+    <h2>右侧栏</h2>
+    <p></p>
+  </div>
+</div>
+  
+</body>
+</html>
